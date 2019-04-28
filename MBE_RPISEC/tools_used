@@ -1,0 +1,19 @@
+// Name  : Abhinav Thakur
+// Email : compilepeace@gmail.com
+
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=- RPISEC : MODERN BINARY EXPLOITATION (CSCI - 4968) -=-=-=-=-=-=-=-=-=-=-=-=-
+
+
+
+##	LINUX
+
+1.	wxhexeditor (GUI tool similar to xxd)
+2.	xxd (make a hexdump or do the reverse)
+3.	strings (Display ASCII strings > 4 chars)
+
+
+
+
+##	WINDOWS
