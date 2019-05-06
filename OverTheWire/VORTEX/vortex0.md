@@ -7,7 +7,7 @@ Since I'm working on an intel processor (which is little endian in architecture)
 
 [Here] is the code written in C language using Unix socket API. This prooved out to be a refresher to my network programming concepts.
 
-![client binary](./screenshots/vortex0_ss.png)
+![client binary](./screenshots/vortex00_ss.png)
 
 
 NAME  : **ABHINAV THAKUR** <br>
