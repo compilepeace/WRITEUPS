@@ -170,10 +170,17 @@ We cannot move `ptr` down (out of bounds of buf), but we surely can move the `pt
 For this, I used python to craft an input. First we decrement `ptr` to 261 characters (i.e. 256 characters to reach the start of `buf` and then decrementing by 4 to reach the `variable x`, then decrementing by 1 to reach the most significant byte of `ptr`(read about [endianess])). 
 
 ```
-vortex1@vortex:~$ python -c 'print "\\"*256 + "\\"*5 + "\xca" + "A"*256 '| /vortex/vortex1
+vortex1@vortex:~$ python -c 'import sys; print "\\"*256 + "\\"*5 + "\xca" + "A"*256; sys.stdout.flush() '| /vortex/vortex1
 vortex1@vortex:~$
 ```
 But it seems that nothing happens. But why ?
+
+What's happening is, STDIN stream still contains the `EOF` character since it is not cleaned up by the the kernel. So, the "/bin/sh" executes but immediately exits. To overcome this situation, what we can do is flush the STDIN buffer maintained by the kernel. This can be done via `flush()` on `stdout stream` (which is provided by the `sys` module in python).
+
+**NOTE**: As described in detail in [this] article : *"The kernel buffer, created by the pipe system call from the shell, is sized based on the page size for the system"*, also *"The linux pipe buffers have changed to circular buffers (16 x 4KiB)"*. So, another way is to provide an input of size greater than a page size so that our input characters overwrite the EOF character after 4096 bytes (a page size). 
+
+
+![vortex1 solution](./screenshots/vortex01_ss.png)
 
 
 
@@ -184,3 +191,4 @@ NAME  : **ABHINAV THAKUR** <br>
 EMAIL : **compilepeace@gmail.com**
 
 [endianess]: https://en.wikipedia.org/wiki/Endianness
+[this]: http://www.pixelbeat.org/programming/stdio_buffering/
