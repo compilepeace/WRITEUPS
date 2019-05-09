@@ -18,6 +18,10 @@ tar -tvf archive.tar		: List the contents of an archive.
 -f option says - Use ARCHIVE file or DEVICE archive.
 
 
+##	COPY FILES BETWEEN 2 MACHINES (REMOTE/HOST)
+
+scp -P 2228 vortex2@vortex.labs.overthewire.org:/vortex/vortex2  /home/critical/Desktop/
+
 
 ##	SPECIAL PARAMETERS (Reference http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_02.html)
 
