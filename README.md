@@ -1,3 +1,6 @@
+[![HitCount](http://hits.dwyl.io/{username}/{project}.svg)](http://hits.dwyl.io/{username}/{project})
+
+
 # WRITEUPS
 This repository contains my writeups for CTF/wargames hosted by different platforms.
 
